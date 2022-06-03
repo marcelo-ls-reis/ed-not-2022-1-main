@@ -95,6 +95,28 @@ class BinarySearchTree:
             self.pre_order_traversal(root.left)    # percorre a subárvore esquerda
             self.pre_order_traversal(root.right)   # percorre a subárvore direita
         if newline: print('\n')                    # Se a flag de quebra de linha estiver ativa, imprime uma quebra de linha
+
+#######################################################################################
+
+
+    """ Método que percorre a árvore post-ordem
+        1º percorre a raiz
+        2º percorre a subárvore esquerda
+        3º percorre a subárvore direita
+    """        
+    def post_order_traversal(self, root = False):   # Percorre a árvore em ordem
+        newline = False                             # Flag para quebra de linha 
+        if root is False:                           # Se não for passado um nodo como parâmetro
+            root = self.__root                      # Se não foi passado um nodo, considera a raiz
+            newline = True                          # Imprime uma quebra de linha no início
+        if root is not None:                        # Se a raiz não for nula
+            self.post_order_traversal(root.left)    # percorre a subárvore esquerda
+            self.post_order_traversal(root.right)   # percorre a subárvore direita
+            print(str(root.data) + ' ', end='')     # imprime a raiz
+        if newline: print('\n')                     # Se a flag de quebra de linha estiver ativa, imprime uma quebra de linha
+        
+        
+
         
 arvore = BinarySearchTree() # Cria uma árvore
 
@@ -112,8 +134,17 @@ arvore.insert(66)
 arvore.insert(19)
 arvore.insert(75)
 
+print(60 * '-')
 print("In-order")
 arvore.in_order_traversal() # Percorre a árvore em ordem
-print("\nPre-order")
+print('\n')
+print(60 * '-')
+
+print("Pre-order")
 arvore.pre_order_traversal() # Percorre a árvore em ordem
+print(60 * '-')
+
+print("Post-order")
+arvore.post_order_traversal() # Percorre a árvore em ordem
+print(60 * '-')
         
